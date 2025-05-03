@@ -7,7 +7,7 @@
 ##### Total Query: 10.000 Films
 ##### Range Year: N/D
 ----
-Movies-Database is a structured SQL collection of movie data, including titles, directors, genres, release years, and ratings. Ideal for film-related research or database projects.
+#### Movies-Database is a structured SQL collection of movie data, including titles, directors, genres, release years, and ratings. Ideal for film-related research or database projects.
 ----
 ##### Tables structure: 
 | id  | title | genre | overview | release_date | original_language | poster_url | vote |
