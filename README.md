@@ -1,4 +1,4 @@
-# Project: moviesDB
+# MoviesDB
 ----
 #### Author: Bocaletto Luca (Elektronoide)
 #### Description: List Movies Database, excellent for tests, exercises, applications, etc.
