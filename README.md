@@ -1,6 +1,6 @@
 # MoviesDB
 ----
-#### Author: Bocaletto Luca (Elektronoide)
+#### Author: Bocaletto Luca 
 #### Description: List Movies Database, excellent for tests, exercises, applications, etc.
 ##### Files Type: SQL
 ##### Total Tables: 1
