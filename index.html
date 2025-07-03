@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Movies-Database | SQL Movie Dataset by Bocaletto Luca</title>
+  <meta name="description" content="Movies-Database: A structured SQL collection of 10,000 films, ideal for testing, data science, and application development.">
+  <meta name="keywords" content="Movies Database, SQL, Film dataset, MySQL, phpMyAdmin, Data Science, Testing, Demo">
+  <meta name="author" content="Bocaletto Luca">
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #333; }
+    header, footer { background: #f8f8f8; padding: 1rem; text-align: center; }
+    main { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+    h1, h2, h3 { color: #222; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    th, td { border: 1px solid #ccc; padding: 0.5rem; text-align: left; }
+    pre { background: #f0f0f0; padding: 1rem; overflow-x: auto; }
+    a { color: #0066cc; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    footer p { margin: 0.5rem 0; }
+    footer a { margin: 0 0.5rem; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Movies-Database</h1>
+    <p>A structured SQL collection of 10,000 films by <strong>Bocaletto Luca</strong>.</p>
+  </header>
+
+  <main>
+    <section id="features">
+      <h2>Features</h2>
+      <ul>
+        <li>Single <code>moviedb</code> table containing 10,000 entries</li>
+        <li>Consistent schema for seamless querying</li>
+        <li>SQL dump generated via phpMyAdmin (MySQL 8.0+ compatible)</li>
+        <li>Supplementary <code>dates.sql</code> for date-dimension analytics</li>
+        <li>Ready to import via MySQL CLI or phpMyAdmin</li>
+      </ul>
+    </section>
+
+    <section id="schema">
+      <h2>Schema</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Column</th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>id</code></td>                <td>INT</td>         <td>Auto-increment primary key</td></tr>
+          <tr><td><code>title</code></td>             <td>VARCHAR(70)</td> <td>Movie title</td></tr>
+          <tr><td><code>overview</code></td>          <td>VARCHAR(350)</td><td>Brief synopsis</td></tr>
+          <tr><td><code>genre</code></td>             <td>VARCHAR(100)</td><td>Comma-separated genres</td></tr>
+          <tr><td><code>release_date</code></td>      <td>DATE</td>        <td>Release date (YYYY-MM-DD)</td></tr>
+          <tr><td><code>original_language</code></td> <td>VARCHAR(3)</td>  <td>ISO language code</td></tr>
+          <tr><td><code>poster_url</code></td>        <td>VARCHAR(150)</td><td>URL to poster image</td></tr>
+          <tr><td><code>vote_average</code></td>      <td>FLOAT</td>       <td>Average user rating</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="structure">
+      <h2>Repository Structure</h2>
+      <pre><code>
+LICENSE
+README.md
+database.sql
+dates.sql
+moviedb.sql
+      </code></pre>
+      <p>
+        <strong>database.sql</strong>: Schema setup and transaction settings<br>
+        <strong>dates.sql</strong>: Date-dimension table for advanced analytics<br>
+        <strong>moviedb.sql</strong>: Dump of <code>moviedb</code> table with 10,000 film records
+      </p>
+    </section>
+
+    <section id="quick-start">
+      <h2>Quick Start</h2>
+      <ol>
+        <li>Clone the repository:<br>
+          <pre><code>git clone https://github.com/bocaletto-luca/Movies-Database.git
+cd Movies-Database</code></pre>
+        </li>
+        <li>Import into MySQL:<br>
+          <pre><code>mysql -u your_user -p &lt; database.sql
+mysql -u your_user -p &lt; dates.sql
+mysql -u your_user -p &lt; moviedb.sql</code></pre>
+        </li>
+        <li>Or import <code>moviedb.sql</code> directly via phpMyAdmin.</li>
+        <li>Connect with any SQL client and start querying.</li>
+      </ol>
+    </section>
+
+    <section id="queries">
+      <h2>Example Queries</h2>
+      <pre><code>-- 1) Top 10 highest-rated films
+SELECT title, vote_average
+  FROM moviedb
+ ORDER BY vote_average DESC
+ LIMIT 10;
+
+-- 2) Count of films per genre
+SELECT genre, COUNT(*) AS total
+  FROM moviedb
+ GROUP BY genre
+ ORDER BY total DESC;
+
+-- 3) Films released in 2021
+SELECT title, release_date
+  FROM moviedb
+ WHERE YEAR(release_date) = 2021;
+
+-- 4) Distribution by original language
+SELECT original_language, COUNT(*) AS count
+  FROM moviedb
+ GROUP BY original_language;
+      </code></pre>
+    </section>
+
+    <section id="contributing">
+      <h2>Contributing</h2>
+      <p>Corrections, enhancements, and new data are welcome. Please open an issue or submit a pull request with updates to the SQL dumps or schema.</p>
+    </section>
+
+    <section id="license">
+      <h2>License</h2>
+      <p>This project is licensed under the <a href="https://github.com/bocaletto-luca/Movies-Database/blob/main/LICENSE" target="_blank">MIT License</a>.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Bocaletto Luca</p>
+    <p>
+      <a href="https://github.com/bocaletto-luca" target="_blank">My GitHub Profile</a> |
+      <a href="https://github.com/bocaletto-luca/Movies-Database" target="_blank">Repository</a>
+    </p>
+  </footer>
+
+</body>
+</html>
